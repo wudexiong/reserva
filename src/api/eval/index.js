@@ -1,7 +1,7 @@
 /*
 * 餐品评价相关的API请求集合
 */
-
+import api from '../index';
 /*
 餐品评价列表 （不用，暂时保留）
 Params说明：
@@ -12,7 +12,7 @@ pageSize	— 分页查询的页大小（行数）
 
 */
 export function evalquery(Params) {
-    return this.$api.post('/eval/evalquery', Params)
+    return api.post('/eval/evalquery', Params);
 }
 
 
@@ -27,5 +27,5 @@ evalTime	— 评价时间
 
 */
 export function submiteval(Params) {
-    return this.$api.post('/eval/submiteval', Params)
+    return api.post('/eval/submiteval', Params);
 }

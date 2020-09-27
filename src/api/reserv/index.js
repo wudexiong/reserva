@@ -1,7 +1,7 @@
 /*
 * 预订午餐相关的API请求集合
 */
-
+import api from '../index';
 
 /*
 获取某周菜单数据 （不用，暂时保留）
@@ -10,7 +10,7 @@ currdate	— 当前日期，或者是获取菜单那个周内的任一日期
 
 */
 export function weekmenu(Params) {
-    return this.$api.post('/reserv/weekmenu', Params)
+    return api.post('/reserv/weekmenu', Params);
 }
 
 /*
@@ -20,12 +20,12 @@ Params说明：
 
 */
 export function nextdaymenu(Params) {
-    return this.$api.post('/reserv/nextdaymenu', Params)
+    return api.post('/reserv/nextdaymenu', Params);
 }
 
 
 /*
-提交订单 
+提交订单
 格式：
 Params：
 {
@@ -49,28 +49,27 @@ foodAmt	— 单品数量
 
 */
 export function submitorder(Params) {
-    return this.$api.post('/reserv/submitorder', Params)
+    return api.post('/reserv/submitorder', Params);
 }
 
 
 /*
-订餐成功页面 
+订餐成功页面
 Params说明：
 orderId	— 订单Id（int类型）
 
 */
 export function getorder(Params) {
-    return this.$api.post('/reserv/getorder', Params)
+    return api.post('/reserv/getorder', Params);
 }
 
 /*
-历史订单 
+历史订单
 Params说明：
 dinTime	— 预订的就餐日期（每个员工每天最多只有一个订单）
 
 */
-export function getorder_bytime(Params) {
-    return this.$api.post('/reserv/getorder_bytime', Params)
+export function getorderBytime(Params) {
+    return api.post('/reserv/getorder_bytime', Params);
 }
-
 

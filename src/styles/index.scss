@@ -1,0 +1,130 @@
+/* 
+全局scss样式
+*/
+
+@import '../styles/icon.scss';
+
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html { height: 101%; }
+body { font-size: 62.5%; line-height: 1; font-family: Arial, Tahoma, sans-serif;background-color: #fff; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+strong { font-weight: bold; } 
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; max-width: 100%; }
+
+ol, ul { list-style: none; }
+
+
+
+// 页头多余样式
+.el-page-header {
+  height: 112px;
+  line-height: 112px;
+  width: 100%;
+  background-color: #fe8d1d;
+
+  .el-icon-arrow-left {
+    font-size: 36px;
+    color: #fff;
+    margin-left: 27px;
+  }
+
+  .el-page-header__content {
+    font-size: 36px;
+    color: #fff;
+    margin: auto;
+    padding-right: 64px;
+  }
+
+  .el-icon-back {
+    display: none;
+  }
+
+  .el-page-header__left::after {
+    display: none;
+  }
+}
+// 底部布局
+.footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 60px;
+  .el-button{
+    width: 320px;
+    height:80px;
+    text-align: center;
+  
+    border: 2px solid #ff9e26;
+    border-radius: 10px;
+  }
+  .left{
+    color:#ff9e26;
+    background-color: #fff;
+  }
+  .right{
+    margin-left: 20px;
+    color:#fff;
+    background-color: #ff9e26;
+  }
+}
+
+
+
+// 输入框
+
+
+.el-input {
+  width: 520px;
+  height: 78px;
+  display: block;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+
+  .el-input__inner {
+    height: 78px;
+    border-radius: 10px;
+  }
+}
+
+
+// 头部公共样式
+.main {
+  height: 100vh;
+ 
+
+}
+
+.inputBox {
+
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+
+  .el-input {
+    margin-top: 22px;
+
+    .el-input__inner {
+      border-radius: 10px;
+      border: 2px solid #e5e5e5;
+    }
+  }
+}
+
+

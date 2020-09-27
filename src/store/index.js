@@ -1,14 +1,20 @@
-import Vue from vue
-import Vuex from vuex
-import actions from './actions'
-import mutations from './mutation'
-import getter from './getter'
-Vue.use(Vuex)
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+import { getItem } from '../utils/storage';
+
+Vue.use(Vuex);
 
 
 export default new Vuex.Store({
-    state: {},
-    mutations,
-    actions,
-    getter
-})
+    state: {
+        token: getItem('token'),
+    },
+    mutations: {
+        setToken(state, data) {
+            state.token = data;
+        },
+    },
+    actions: {},
+    getter: {},
+});

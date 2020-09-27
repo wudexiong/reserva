@@ -1,10 +1,12 @@
+
+import 'element-ui/lib/theme-chalk/index.css';
 import Vue from 'vue';
+import ElementUI from 'element-ui';
 import App from './App';
 import router from './router';
-import api from './api'
+import '../mock';
 
-Vue.prototype.$api = api
-
+Vue.use(ElementUI);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

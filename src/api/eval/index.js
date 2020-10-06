@@ -11,7 +11,7 @@ pageNo	— 分页查询的页编号
 pageSize	— 分页查询的页大小（行数）
 
 */
-export function evalquery(Params) {
+export async function evalquery(Params) {
     return api.post('/eval/evalquery', Params);
 }
 

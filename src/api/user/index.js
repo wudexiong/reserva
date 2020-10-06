@@ -45,7 +45,6 @@ export function resetpwd(Params) {
 获取个人信息
 Params说明：
 传入空对象{}
-
 */
 export function getinfor(Params) {
     return api.post('/users/getinfor', Params);

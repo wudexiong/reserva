@@ -1,9 +1,7 @@
 <template>
   <div>
-    <el-page-header>
-      <span slot="title" class="el-icon-arrow-left" @click="goBack"></span>
-      <span slot="content">历史订单</span>
-    </el-page-header>
+         <Top title="历史订单"></Top>
+
     <div class="box">
       <ul class="nutchBox">
         <li>
@@ -12,18 +10,18 @@
             <el-date-picker
               v-model="value1"
               type="date"
-              id="date"
               placeholder="选择日期"
+              @change ="change"
             >
             </el-date-picker>
             <i class="el-icon-arrow-right"></i>
           </div>
         </li>
-        <ul class="products">
+        <ul class="products" v-if="list.length > 0">
           <li class="p">所选餐品</li>
-          <li>
-            <span>午餐单品</span>
-            <span>1份</span>
+          <li v-for="(item, index) in list" :key="index">
+            <span>{{item.foodName}}</span>
+            <span>{{item.foodAmt}}份</span>
           </li>
         </ul>
       </ul>
@@ -36,44 +34,27 @@
 </template>
 
 <script>
+import Top from '@/components/common/top';
+
+// 导入请求历史订单接口
+import { getorderBytime } from '@/api/reserv';
+
 export default {
   name: 'getorderBytime',
+   components: {
+    Top,
+  },
   data() {
     return {
-      pickerOptions: {
-        disabledDate(time) {
-          return time.getTime() > Date.now();
-        },
-        shortcuts: [
-          {
-            text: '今天',
-            onClick(picker) {
-              picker.$emit('pick', new Date());
-            },
-          },
-          {
-            text: '昨天',
-            onClick(picker) {
-              const date = new Date();
-              // eslint-disable-next-line no-mixed-operators
-              date.setTime(date.getTime() - 3600 * 1000 * 24);
-              picker.$emit('pick', date);
-            },
-          },
-          {
-            text: '一周前',
-            onClick(picker) {
-              const date = new Date();
-              // eslint-disable-next-line no-mixed-operators
-              date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
-              picker.$emit('pick', date);
-            },
-          },
-        ],
-      },
-      value1: '2020-9-9',
-      value2: '',
+      // 订单列表
+      list: [],
+      // 就餐日期
+      value1: this.$store.getters.timeTomorrow,
     };
+  },
+  created() {
+    // 初始化历史订单
+    this.change();
   },
   methods: {
     goBack() {
@@ -81,6 +62,12 @@ export default {
     },
     right() {
       this.$router.push('/reserv');
+    },
+    // 选择日期后触发请求，请求历史订单
+    change() {
+      getorderBytime({ dinTime: this.value1 }).then((res) => {
+        this.list = res.infor.food;
+      }, (err) => { console.log(err); });
     },
   },
 };
@@ -119,7 +106,11 @@ export default {
   }
   .el-input__inner {
     border: 0;
+    padding:0;
   }
+}
+.el-date-editor{
+  width: 80px;
 }
 
 </style>

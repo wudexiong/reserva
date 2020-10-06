@@ -13,14 +13,19 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font: inherit;
   vertical-align: baseline;
   outline: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 html { height: 101%; }
 body { font-size: 62.5%; line-height: 1; font-family: Arial, Tahoma, sans-serif;background-color: #fff; }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: none;
+  outline: #000 dotted 2px;
+  outline-offset: .05em;
+}
 blockquote, q { quotes: none; }
 blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
 strong { font-weight: bold; } 
@@ -95,7 +100,6 @@ ol, ul { list-style: none; }
   height: 78px;
   display: block;
   border-radius: 10px;
-  border: 2px solid #ccc;
 
   .el-input__inner {
     height: 78px;
@@ -128,3 +132,6 @@ ol, ul { list-style: none; }
 }
 
 
+@media screen and (max-width: 375px) {
+  .el-aside{display: none;}
+}
